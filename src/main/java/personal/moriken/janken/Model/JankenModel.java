@@ -1,24 +1,38 @@
 package personal.moriken.janken.Model;
 
 public class JankenModel {
-	private String[] hands;
 
 	public String[] getHands() {
-		return hands;
+		String[] result =  JankenHands.getHandsName();
+		return result;
 	}
 
-	private int cpuHand;
+	private JankenHands cpuHand;
 	
 	public void setCpuHand(int handCode) {
-		cpuHand = handCode;
+		setCpuHand(JankenHands.GetHandFromCode(handCode));
+	}
+	
+	public void setCpuHand(JankenHands hand) {
+		cpuHand = hand;
 	}
 	
 	public String getCpuHandName() {
-		return hands[cpuHand];
+		return cpuHand.getHandName();
+	}
+	
+	public JankenResult CheckResult(JankenHands playerHand) {
+		if (cpuHand.getHandId() == playerHand.getHandId()) {
+			return JankenResult.Draw;
+		}
+		if (cpuHand.getHandId() % 3 == (playerHand.getHandId() + 1) % 3) {
+			return JankenResult.Win;
+		}
+		return JankenResult.Lose;
 	}
 	
 	public JankenModel() {
-		hands = new String[] {"グー", "チョキ", "パー"};
+		cpuHand = null;
 	}
 	
 }
