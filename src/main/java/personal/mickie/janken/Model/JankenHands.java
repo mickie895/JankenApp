@@ -1,4 +1,4 @@
-package personal.moriken.janken.Model;
+package personal.mickie.janken.Model;
 
 import java.util.ArrayList;
 import java.util.List;

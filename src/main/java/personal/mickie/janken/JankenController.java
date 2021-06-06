@@ -1,4 +1,4 @@
-package personal.moriken.janken;
+package personal.mickie.janken;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,4 +1,4 @@
-package personal.moriken.janken;
+package personal.mickie.janken;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

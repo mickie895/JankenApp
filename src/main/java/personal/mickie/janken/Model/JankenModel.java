@@ -1,4 +1,4 @@
-package personal.moriken.janken.Model;
+package personal.mickie.janken.Model;
 
 public class JankenModel {
 

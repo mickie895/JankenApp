@@ -1,10 +1,15 @@
-package personal.moriken.janken.Model;
+package personal.mickie.janken.Model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import personal.mickie.janken.Model.JankenHands;
+import personal.mickie.janken.Model.JankenModel;
+import personal.mickie.janken.Model.JankenResult;
+
 import java.util.Arrays;
 
 public class JankenModelTest {

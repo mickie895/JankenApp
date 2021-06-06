@@ -1,4 +1,4 @@
-package personal.moriken.janken;
+package personal.mickie.janken;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
