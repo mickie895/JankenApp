@@ -6,10 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import personal.mickie.janken.Model.JankenHands;
-import personal.mickie.janken.Model.JankenModel;
-import personal.mickie.janken.Model.JankenResult;
-
 import java.util.Arrays;
 
 public class JankenModelTest {
@@ -62,5 +58,12 @@ public class JankenModelTest {
 		playerHand = JankenHands.SCISSORS;
 		assertEquals(model.CheckResult(playerHand), JankenResult.Lose);
 		
+		// 上記組み合わせで足りていない手の組み合わせを実装
+		model.setCpuHand(JankenHands.PAPER);
+		assertEquals(model.CheckResult(playerHand), JankenResult.Win);
+		
+		// CPUとプレイヤーで逆の手を出したら勝ち負けも逆になる。(ただし引き分け以外)
+		playerHand = JankenHands.ROCK;
+		assertEquals(model.CheckResult(playerHand), JankenResult.Lose);
 	}
 }

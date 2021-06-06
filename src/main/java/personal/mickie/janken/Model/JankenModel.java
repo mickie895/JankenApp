@@ -22,13 +22,7 @@ public class JankenModel {
 	}
 	
 	public JankenResult CheckResult(JankenHands playerHand) {
-		if (cpuHand.getHandId() == playerHand.getHandId()) {
-			return JankenResult.Draw;
-		}
-		if (cpuHand.getHandId() % 3 == (playerHand.getHandId() + 1) % 3) {
-			return JankenResult.Win;
-		}
-		return JankenResult.Lose;
+		return playerHand.getResult(cpuHand);
 	}
 	
 	public JankenModel() {
