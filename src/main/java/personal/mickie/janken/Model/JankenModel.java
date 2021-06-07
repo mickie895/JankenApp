@@ -1,5 +1,7 @@
 package personal.mickie.janken.Model;
 
+import java.util.Random;
+
 public class JankenModel {
 
 	public String[] getHands() {
@@ -15,6 +17,11 @@ public class JankenModel {
 	
 	public void setCpuHand(JankenHands hand) {
 		cpuHand = hand;
+	}
+	
+	public void setCpuHand() {
+		Random rand = new Random();
+		setCpuHand(rand.nextInt(3) + 1);
 	}
 	
 	public String getCpuHandName() {

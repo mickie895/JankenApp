@@ -1,7 +1,9 @@
 package personal.mickie.janken.Model;
 
+import static org.assertj.core.api.Assertions.assertThatNoException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -65,5 +67,34 @@ public class JankenModelTest {
 		// CPUとプレイヤーで逆の手を出したら勝ち負けも逆になる。(ただし引き分け以外)
 		playerHand = JankenHands.ROCK;
 		assertEquals(model.CheckResult(playerHand), JankenResult.Lose);
+	}
+	
+	@Test
+	void testRandomHand() {
+		boolean rockAppeared = false;
+		boolean paperAppeared = false;
+		boolean scissorsAppeared = false;
+		
+		for (int i = 0; i < 1000; i++) {
+			model.setCpuHand();
+			switch (model.getCpuHandName()){
+			case ROCK:
+				rockAppeared = true;
+				break;
+			case PAPER:
+				paperAppeared = true;
+				break;
+			case SCISSORS:
+				scissorsAppeared = true;
+				break;
+			default:
+				fail();	
+			}
+		}
+		
+		// 100回も回せば全部の手がでると思う。
+		assertTrue(rockAppeared);
+		assertTrue(paperAppeared);
+		assertTrue(scissorsAppeared);
 	}
 }
