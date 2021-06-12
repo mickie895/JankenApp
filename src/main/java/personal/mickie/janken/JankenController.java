@@ -31,7 +31,7 @@ public class JankenController {
 		model.addAttribute("player", player.getHandName());
 		model.addAttribute("result", result.toString());
 		
-		return "start/result.html";
+		return "start/result";
 	}
 	
 }

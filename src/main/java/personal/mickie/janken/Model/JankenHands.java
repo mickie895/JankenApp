@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public enum JankenHands {
-	ROCK("ƒO[", 1),
-	SCISSORS("ƒ`ƒ‡ƒL",2),
-	PAPER("ƒp[",3);
+	ROCK("ã‚°ãƒ¼", 1),
+	SCISSORS("ãƒãƒ§ã‚­",2),
+	PAPER("ãƒ‘ãƒ¼",3);
 	
 	private String handName;
 	private int handId;
@@ -48,7 +48,7 @@ public enum JankenHands {
 				return hand;
 			}
 		}
-		throw new IllegalArgumentException("‚¶‚á‚ñ‚¯‚ñ‚Ìè‚Í1`3‚Ü‚Å‚Ì”‚Å‚¨Šè‚¢‚µ‚Ü‚·B");
+		throw new IllegalArgumentException("ã˜ã‚ƒã‚“ã‘ã‚“ã®æ‰‹ã¯1ï½3ã¾ã§ã®æ•°ã§ãŠé¡˜ã„ã—ã¾ã™ã€‚");
 	}
 	
 }

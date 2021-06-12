@@ -12,9 +12,9 @@ import java.util.Arrays;
 public class JankenModelTest {
 
 	private JankenModel model;
-	private final String ROCK = "ƒO[";
-	private final String SCISSORS = "ƒ`ƒ‡ƒL";
-	private final String PAPER = "ƒp[";
+	private final String ROCK = "ã‚°ãƒ¼";
+	private final String SCISSORS = "ãƒãƒ§ã‚­";
+	private final String PAPER = "ãƒ‘ãƒ¼";
 	
 	@BeforeEach
 	void SetUp() {
@@ -23,9 +23,9 @@ public class JankenModelTest {
 	
 	@Test
 	void testHandList() {
-		// ‚¶‚á‚ñ‚¯‚ñ‚Ìè‚Í3‚Â
+		// ã˜ã‚ƒã‚“ã‘ã‚“ã®æ‰‹ã¯3ã¤
 		assertEquals(model.getHands().length, 3);
-		// ƒO[Aƒ`ƒ‡ƒLAƒp[‚ªŠÜ‚Ü‚ê‚é
+		// ã‚°ãƒ¼ã€ãƒãƒ§ã‚­ã€ãƒ‘ãƒ¼ãŒå«ã¾ã‚Œã‚‹
 		assertTrue(Arrays.asList(model.getHands()).contains(ROCK));
 		assertTrue(Arrays.asList(model.getHands()).contains(PAPER));
 		assertTrue(Arrays.asList(model.getHands()).contains(SCISSORS));	
@@ -33,7 +33,7 @@ public class JankenModelTest {
 	
 	@Test
 	void testSetHand(){
-		// ƒO[F1Aƒ`ƒ‡ƒL:2Aƒp[:3‚Æ‚µ‚ÄÀ‘•‚·‚é
+		// ã‚°ãƒ¼ï¼š1ã€ãƒãƒ§ã‚­:2ã€ãƒ‘ãƒ¼:3ã¨ã—ã¦å®Ÿè£…ã™ã‚‹
 		model.setCpuHand(1);
 		assertEquals(model.getCpuHandName(), ROCK);
 		model.setCpuHand(2);
@@ -44,38 +44,38 @@ public class JankenModelTest {
 			model.setCpuHand(0);
 			fail();
 		} catch (Exception e) {
-			// —áŠO”­¶‚ª³‚µ‚¢
+			// ä¾‹å¤–ç™ºç”ŸãŒæ­£ã—ã„
 		}
 		try {
 			model.setCpuHand(4);
 			fail();
 		} catch (Exception e) {
-			// —áŠO”­¶‚ª³‚µ‚¢
+			// ä¾‹å¤–ç™ºç”ŸãŒæ­£ã—ã„
 		}
 	}
 	
 	@Test
 	void testHandStrength() {
-		// CPU‚ªƒO[‚ğo‚µ‚Ä‚¢‚éó‘Ô‚ÅA
+		// CPUãŒã‚°ãƒ¼ã‚’å‡ºã—ã¦ã„ã‚‹çŠ¶æ…‹ã§ã€
 		model.setCpuHand(JankenHands.ROCK);
 		
-		// ƒvƒŒƒCƒ„[‚ªƒp[‚ğo‚µ‚Ä‚¢‚ê‚ÎŸ‚¿
+		// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒãƒ‘ãƒ¼ã‚’å‡ºã—ã¦ã„ã‚Œã°å‹ã¡
 		JankenHands playerHand = JankenHands.PAPER;
 		assertEquals(model.checkResult(playerHand), JankenResult.Win);
 		
-		// ƒvƒŒƒCƒ„[‚àƒO[‚È‚çˆø‚«•ª‚¯
+		// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚‚ã‚°ãƒ¼ãªã‚‰å¼•ãåˆ†ã‘
 		playerHand = JankenHands.ROCK;
 		assertEquals(model.checkResult(playerHand), JankenResult.Draw);
 		
-		// ƒvƒŒƒCƒ„[‚ªƒ`ƒ‡ƒL‚È‚ç•‰‚¯
+		// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒãƒãƒ§ã‚­ãªã‚‰è² ã‘
 		playerHand = JankenHands.SCISSORS;
 		assertEquals(model.checkResult(playerHand), JankenResult.Lose);
 		
-		// ã‹L‘g‚İ‡‚í‚¹‚Å‘«‚è‚Ä‚¢‚È‚¢è‚Ì‘g‚İ‡‚í‚¹‚ğÀ‘•
+		// ä¸Šè¨˜çµ„ã¿åˆã‚ã›ã§è¶³ã‚Šã¦ã„ãªã„æ‰‹ã®çµ„ã¿åˆã‚ã›ã‚’å®Ÿè£…
 		model.setCpuHand(JankenHands.PAPER);
 		assertEquals(model.checkResult(playerHand), JankenResult.Win);
 		
-		// CPU‚ÆƒvƒŒƒCƒ„[‚Å‹t‚Ìè‚ğo‚µ‚½‚çŸ‚¿•‰‚¯‚à‹t‚É‚È‚éB(‚½‚¾‚µˆø‚«•ª‚¯ˆÈŠO)
+		// CPUã¨ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã§é€†ã®æ‰‹ã‚’å‡ºã—ãŸã‚‰å‹ã¡è² ã‘ã‚‚é€†ã«ãªã‚‹ã€‚(ãŸã ã—å¼•ãåˆ†ã‘ä»¥å¤–)
 		playerHand = JankenHands.ROCK;
 		assertEquals(model.checkResult(playerHand), JankenResult.Lose);
 	}
@@ -103,7 +103,7 @@ public class JankenModelTest {
 			}
 		}
 		
-		// 100‰ñ‚à‰ñ‚¹‚Î‘S•”‚Ìè‚ª‚Å‚é‚Æv‚¤B
+		// 100å›ã‚‚å›ã›ã°å…¨éƒ¨ã®æ‰‹ãŒã§ã‚‹ã¨æ€ã†ã€‚
 		assertTrue(rockAppeared);
 		assertTrue(paperAppeared);
 		assertTrue(scissorsAppeared);

@@ -9,11 +9,11 @@ public enum JankenResult{
 
 		switch (this){
 		case Win:
-			return "‚©‚¿";
+			return "ã‹ã¡";
 		case Draw:
-			return "‚Ğ‚«‚í‚¯";
+			return "ã²ãã‚ã‘";
 		case Lose:
-			return "‚Ü‚¯";
+			return "ã¾ã‘";
 		}
 		
 		return super.toString();
