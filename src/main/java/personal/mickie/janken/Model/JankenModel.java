@@ -28,7 +28,7 @@ public class JankenModel {
 		return cpuHand.getHandName();
 	}
 	
-	public JankenResult CheckResult(JankenHands playerHand) {
+	public JankenResult checkResult(JankenHands playerHand) {
 		return playerHand.getResult(cpuHand);
 	}
 	

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>練習用じゃんけんアプリケーション</title>
+</head>
+<body>
+
+<h1>じゃんけんぽん</h1>
+
+<hr>
+
+あなたの手は<div th:text="${player}"></div>、コンピュータの手は<div th:text="${cpu}"></div><br>
+
+<p>
+結果は<div th:text="${result}"></div>です。
+</p>
+
+<hr>
+
+<a href="./start">もう一回行う</a>
+
+</body>
+</html>

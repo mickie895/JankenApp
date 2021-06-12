@@ -1,6 +1,5 @@
 package personal.mickie.janken.Model;
 
-import static org.assertj.core.api.Assertions.assertThatNoException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -41,6 +40,18 @@ public class JankenModelTest {
 		assertEquals(model.getCpuHandName(), SCISSORS);
 		model.setCpuHand(3);
 		assertEquals(model.getCpuHandName(), PAPER);
+		try {
+			model.setCpuHand(0);
+			fail();
+		} catch (Exception e) {
+			// 例外発生が正しい
+		}
+		try {
+			model.setCpuHand(4);
+			fail();
+		} catch (Exception e) {
+			// 例外発生が正しい
+		}
 	}
 	
 	@Test
@@ -50,23 +61,23 @@ public class JankenModelTest {
 		
 		// プレイヤーがパーを出していれば勝ち
 		JankenHands playerHand = JankenHands.PAPER;
-		assertEquals(model.CheckResult(playerHand), JankenResult.Win);
+		assertEquals(model.checkResult(playerHand), JankenResult.Win);
 		
 		// プレイヤーもグーなら引き分け
 		playerHand = JankenHands.ROCK;
-		assertEquals(model.CheckResult(playerHand), JankenResult.Draw);
+		assertEquals(model.checkResult(playerHand), JankenResult.Draw);
 		
 		// プレイヤーがチョキなら負け
 		playerHand = JankenHands.SCISSORS;
-		assertEquals(model.CheckResult(playerHand), JankenResult.Lose);
+		assertEquals(model.checkResult(playerHand), JankenResult.Lose);
 		
 		// 上記組み合わせで足りていない手の組み合わせを実装
 		model.setCpuHand(JankenHands.PAPER);
-		assertEquals(model.CheckResult(playerHand), JankenResult.Win);
+		assertEquals(model.checkResult(playerHand), JankenResult.Win);
 		
 		// CPUとプレイヤーで逆の手を出したら勝ち負けも逆になる。(ただし引き分け以外)
 		playerHand = JankenHands.ROCK;
-		assertEquals(model.CheckResult(playerHand), JankenResult.Lose);
+		assertEquals(model.checkResult(playerHand), JankenResult.Lose);
 	}
 	
 	@Test

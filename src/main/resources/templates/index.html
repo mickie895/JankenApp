@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>練習用じゃんけんアプリケーション</title>
+</head>
+<body>
+
+<h1>じゃんけんしましょう</h1>
+
+下記の3つのボタンからどれか選んでね。
+
+<hr>
+
+<table><td>
+<form method="post" action="/result">
+<input type="hidden" name="hand" value="1">
+<input type="submit" value="グーを出す">
+</form>
+</td><td>
+<form method="post" action="/result">
+<input type="hidden" name="hand" value="2">
+<input type="submit" value="チョキを出す">
+</form></td><td>
+<form method="post" action="/result">
+<input type="hidden" name="hand" value="3">
+<input type="submit" value="パーを出す">
+</form></td></table>
+
+</body>
+</html>
